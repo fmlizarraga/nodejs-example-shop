@@ -35,8 +35,8 @@ store.on('error', function(error) {
 
 const csrfProtection = csrf();
 
-const privatekey = fs.readFileSync('server.key');
-const certificate = fs.readFileSync('server.cert');
+// const privatekey = fs.readFileSync('server.key');
+// const certificate = fs.readFileSync('server.cert');
 
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {

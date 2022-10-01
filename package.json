@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Complete Node.js Guide",
   "main": "app.js",
+  "engines": {
+    "node": "18.9.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "MONGO_USER=fml MONGO_PASSWORD=RjK6aMqoUcWcIktD MONGO_DEFAULT_DATABASE=shop node app.js",
