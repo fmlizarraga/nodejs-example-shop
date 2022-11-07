@@ -58,9 +58,7 @@ const fileFilter = (req, file, cb) => {
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
-const authRoutes = require('./routes/auth');
+const routes = require('./routes/router');
 
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, 'access.log'), 
@@ -107,9 +105,9 @@ app.use((req, res, next) => {
     });
 });
 
-app.use('/admin', adminRoutes);
-app.use(shopRoutes);
-app.use(authRoutes);
+routes.forEach(router => {
+  app.use(router.path, router.route);
+});
 
 app.get('/500', errorController.get500);
 
@@ -127,8 +125,6 @@ mongoose
   .connect(MONGODB_URI + '?retryWrites=true&w=majority')
   .then(result => {
     console.log('Conectado a DB');
-    // https.createServer({key: privatekey, cert: certificate}, app)
-    // .listen(process.env.PORT || 3000);
     app.listen(process.env.PORT || 3000);
   })
   .catch(err => {

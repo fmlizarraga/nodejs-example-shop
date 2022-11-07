@@ -1,20 +1,22 @@
 {
-  "name": "nodejs-complete-guide",
+  "name": "nodejs-webshop-app",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
+  "description": "Node.js Guide Webshop App",
   "main": "app.js",
   "engines": {
     "node": "18.9.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "MONGO_USER=fml MONGO_PASSWORD=RjK6aMqoUcWcIktD MONGO_DEFAULT_DATABASE=shop node app.js",
-    "start-server": "node app.js",
-    "start:dev": "nodemon app.js"
+    "test": "mocha",
+    "start": "node -r dotenv/config app.js",
+    "start-server": "node -r dotenv/config app.js",
+    "start:dev": "nodemon -r dotenv/config app.js"
   },
-  "author": "Maximilian Schwarzmüller",
+  "author": "Franco Lizarraga",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.19"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^3.1.1",
     "csurf": "^1.11.0",
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.16.3",
     "express-session": "^1.17.3",

@@ -40,10 +40,6 @@ router.post(
             .isEmail()
             .withMessage('Direcion de email invalida.')
             .custom((value, {req}) => {
-                // if (value === 'test@test.com') {
-                //     throw new Error('Fuck YOU in particular!');
-                // }
-                // return true;
                 return User.findOne({email: value})
                 .then(userDoc => {
                     if (userDoc) {
