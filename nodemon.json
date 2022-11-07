@@ -1,7 +1,0 @@
-{
-    "env": {
-        "MONGO_USER": "fml",
-        "MONGO_PASSWORD": "RjK6aMqoUcWcIktD",
-        "MONGO_DEFAULT_DATABASE": "shop"
-    }
-}
